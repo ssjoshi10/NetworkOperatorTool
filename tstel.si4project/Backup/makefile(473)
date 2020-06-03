@@ -1,0 +1,26 @@
+tstel: Tstel.o main.o database.o prepaid.o postpaid.o charging.o Iterception_Barred.o
+	g++ Tstel.o main.o database.o prepaid.o postpaid.o charging.o Iterception_Barred.o -o tstel
+
+main.o: main.cpp
+	g++ -c main.cpp
+
+database.o: database.cpp
+	g++ -c database.cpp
+
+prepaid.o: prepaid.cpp
+	g++ -c prepaid.cpp
+
+postpaid.o: postpaid.cpp
+	g++ -c postpaid.cpp
+
+charging.o: charging.cpp
+	g++ -c charging.cpp
+
+Tstel.o: Tstel.cpp
+	g++ -c Tstel.cpp
+
+Iterception_Barred.o: Iterception_Barred.cpp
+	g++ -c Iterception_Barred.cpp
+
+clean:
+	rm -rf *o tstel

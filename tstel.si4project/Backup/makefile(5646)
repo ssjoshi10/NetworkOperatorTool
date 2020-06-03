@@ -1,0 +1,47 @@
+#**********************************************************************************************
+#Name of the module 	: makefile
+#Date of creation 	: 21/5/2020
+#Author of module 	: Shubhangi Joshi
+#Description of module:
+This module contains declerations of the class charging and includes class database, prepaid, postpaid and main component as friends
+
+Different functions supported in the module:
+	int calculate_validity(date dt1,date dt2);							Function to calculate validity i.e no of days between today's date and plan activation date
+	void rchg_date(int *d,int *m,int *y);								Function for calculating next recharge date
+	void generate_bill(long long int msin,validity_info st);			Function to generate and print bill for postpaid subscribers
+
+Global datatypes accessed or modified by the module.
+const int Mdays[]		this array holds the no. of days for every month
+
+Revision/Modification History:
+Added charging.h		Shubhangi Joshi		21/5/2020
+
+************************************************************************************************/
+
+
+tstel: Tstel.o main.o database.o prepaid.o postpaid.o charging.o Interception_Barred.o
+	g++ Tstel.o main.o database.o prepaid.o postpaid.o charging.o Interception_Barred.o -o tstel
+
+main.o: main.cpp
+	g++ -c main.cpp
+
+database.o: database.cpp
+	g++ -c database.cpp
+
+prepaid.o: prepaid.cpp
+	g++ -c prepaid.cpp
+
+postpaid.o: postpaid.cpp
+	g++ -c postpaid.cpp
+
+charging.o: charging.cpp
+	g++ -c charging.cpp
+
+Tstel.o: Tstel.cpp
+	g++ -c Tstel.cpp
+
+Iterception_Barred.o: Interception_Barred.cpp
+	g++ -c Interception_Barred.cpp
+
+clean:
+	rm -rf *o tstel
